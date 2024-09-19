@@ -1,6 +1,6 @@
 const express = require("express");
 const web = express();
-const cnf = require("../../config.json");
+const cnf = require("./config.json");
 const path = require("path");
 const bodyParser = require('body-parser');
 
@@ -17,7 +17,7 @@ web.use(bodyParser.urlencoded({ extended: true }));
 // Login section
 web.post('/player/login/dashboard', (req, res) => {
     try {
-        res.sendFile(path.resolve(__dirname, "../../website/index.html"));
+        res.redirect("/index.html");
     } catch (error) {
         console.error(error);
         res.sendStatus(404);
