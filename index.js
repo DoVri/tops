@@ -41,14 +41,6 @@ web.post('/player/validate/close', function (req, res) {
     res.send('<script>window.close();</script>');
 });
 
-web.get("*", (req, res)=>{
-    try {
-        res.sendFile(path.resolve(__dirname, "../../website/"+req.url.split("public/")[1]));
-    } catch (error) {
-        console.error(error);
-        res.sendStatus(404);
-    }
-})
 web.use(express.static(__dirname + "public"));
 
 module.exports = web;
