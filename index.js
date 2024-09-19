@@ -15,7 +15,7 @@ web.use(function (req, res, next) {
 web.use(bodyParser.urlencoded({ extended: true }));
 
 // Login section
-web.post('/player/login/dashboard', (req, res) => {
+web.get('/player/login/dashboard', (req, res) => {
     try {
         res.redirect("/index.html");
     } catch (error) {
