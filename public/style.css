@@ -18,6 +18,7 @@ img {
     animation: nim ease-in-out 3s infinite;
     opacity: 0;
     image-rendering: optimizeSpeed;
+    transform: scale(0.5);
 }
 @keyframes nim {
     50% {
@@ -25,5 +26,6 @@ img {
     }
     100% {
         opacity: 0;
+        transform: scale(2);
     }
 }
