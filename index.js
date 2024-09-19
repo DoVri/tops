@@ -41,6 +41,6 @@ web.post('/player/validate/close', function (req, res) {
     res.send('<script>window.close();</script>');
 });
 
-web.use(express.static(__dirname + "public"));
+web.use(express.static(__dirname + "/public"))
 
 module.exports = web;
