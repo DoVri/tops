@@ -1,5 +1,5 @@
 {
     "server": {
-        "returnToken": false,
+        "returnToken": false
     }
 }
