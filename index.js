@@ -44,7 +44,7 @@ web.post('/player/growid/login/validate', (req, res) => {
                 }
             })
             .catch(error => {
-                .status(500).send('');
+                res.status(500).send('');
             });
         
     } catch (error) {
