@@ -28,7 +28,7 @@ web.post('/player/growid/login/validate', (req, res) => {
     try {
         const tkn = req.body['g-recaptcha-response'];
         if (!tkn) {
-            return res.status(403).send('');
+            return res.status(400).send('');
         }
         
         const verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${key}&response=${tkn}`;
@@ -36,21 +36,17 @@ web.post('/player/growid/login/validate', (req, res) => {
         axios.post(verifyURL)
             .then(response => {
                 if (response.data.success) {
-                    res.send('CAPTCHA verified successfully!');
-                                                                                    } else {
-                                                                                                    res.status(400).send('CAPTCHA verification failed.');
-                                                                                                                }
-                                                                                                                        })
-                                                                                                                                .catch(error => {
-                                                                                                                                            res.status(500).send('Error verifying CAPTCHA');
-                                                                                                                                                    });
-        const token = Buffer.from(
-            `_token=${req.body._token}&growId=GROWPLUS&password=GROWPLUS`,
-        ).toString('base64');
+                    const token = Buffer.from(`_token=${req.body._token}&growId=GROWPLUS&password=GROWPLUS`,).toString('base64');
     
-        res.send(
-            `{"status":"success","message":"Account Validated.","token":"${cnf.server.returnToken ? token : ""}","url":"","accountType":"growtopia"}`,
-        );
+                    res.send(`{"status":"success","message":"Account Validated.","token":"${cnf.server.returnToken ? token : ""}","url":"","accountType":"growtopia"}`,);
+                } else {
+                    res.status(403).send('');
+                }
+            })
+            .catch(error => {
+                .status(500).send('');
+            });
+        
     } catch (error) {
         console.error(error);
         res.sendStatus(404);

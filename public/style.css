@@ -10,10 +10,6 @@ body {
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
 }
-#login-gt {
-    position: absolute;
-    opacity: 0;
-}
 #verify {
     padding: 15px;
     border-radius: 2px;
