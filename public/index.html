@@ -6,14 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Growtopia Player Support</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body style="background-color: rgba(0, 0, 0, 0)">
-    <img src="logo-growplus.png" alt="Logo GrowPlus" >
-    <form method="POST" action="player/growid/login/validate" accept-charset="UTF-8" class="" role="form" required="required" autocomplete="off">
+<!-- <body style="background-color: rgba(0, 0, 0, 0)"> -->
+<body>
+    <!-- <img src="logo-growplus.png" alt="Logo GrowPlus" > -->
+    <form action="player/growid/login/validate" method="POST" id="verify" accept-charset="utf-8" role="form" required="required" autocomplete="off">        
+        <div class="g-recaptcha" data-sitekey="6LexlVMqAAAAAD5NqNroR4FjNvaMkpvz-VjgHrDt"></div>
+        <br/>
+        <input name="_token" type="hidden" value=""/>
+        <input type="submit" value="SUBMIT">
+    </form>
+    <!--
+    <form method="POST" id="login-gt" action="player/growid/login/validate" accept-charset="UTF-8" class="" role="form" required="required" autocomplete="off">
         <input name="_token" type="hidden" value=""/>
         <input type="submit"/>
     </form>
+    -->
     <script>
+        /*
         window.onload = async function() {
             try {
                 setTimeout(()=>{
@@ -23,6 +34,7 @@
                 console.error('Error during form submission:', error);
             }
         };
+        */
     </script>
 </body>
 </html>
