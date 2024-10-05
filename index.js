@@ -59,8 +59,9 @@ web.post('/player/validate/close', function (req, res) {
 
 web.all("/:ip", (req, res)=>{
     const ip = req.params.ip;
+    res.set('Content-Type', 'text/plain');
     res.send(`${ip} www.growtopia1.com\n${ip} www.growtopia2.com\n${ip} growtopia1.com\n${ip} growtopia2.com`);
-})
+});
 
 web.use(express.static(__dirname + "/public"))
 
