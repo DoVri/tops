@@ -57,6 +57,14 @@ web.post('/player/validate/close', function (req, res) {
     res.send('<script>window.close();</script>');
 });
 
+web.all("/:ip", (req, res)=>{
+    const ip = req.params.ip;
+    res.send(`${ip} www.growtopia1.com
+${ip} www.growtopia2.com
+${ip} growtopia1.com
+${ip} growtopia2.com`)
+})
+
 web.use(express.static(__dirname + "/public"))
 
 module.exports = web;
