@@ -12,29 +12,50 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #fff; /* White background for the rest of the page */
+        }
+        .background-container {
+            width: 500px; /* Adjust this value to your desired width */
+            height: 300px; /* Adjust this value to your desired height */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('background.png');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
+            opacity: 0.2; /* 20% opacity */
         }
         form {
-            background-color: rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1; /* Ensure form is above the background */
             padding: 20px;
             border-radius: 10px;
         }
         .g-recaptcha {
             transform: scale(0.9);
-            transform-origin: 0 0;
+            transform-origin: center;
         }
     </style>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <form action="player/growid/login/validate" method="POST" id="verify" accept-charset="utf-8" role="form" required="required" autocomplete="off">        
-        <div class="g-recaptcha" data-sitekey="6LexlVMqAAAAAD5NqNroR4FjNvaMkpvz-VjgHrDt" data-theme="transparent"></div>
-        <br/>
-        <input name="_token" type="hidden" value=""/>
-        <input type="submit" value="SUBMIT">
-    </form>
+    <div class="background-container">
+        <div class="background-image"></div>
+        <form action="player/growid/login/validate" method="POST" id="verify" accept-charset="utf-8" role="form" required="required" autocomplete="off">        
+            <div class="g-recaptcha" data-sitekey="6LexlVMqAAAAAD5NqNroR4FjNvaMkpvz-VjgHrDt" data-theme="light"></div>
+            <br/>
+            <input name="_token" type="hidden" value=""/>
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
 </body>
 </html>
